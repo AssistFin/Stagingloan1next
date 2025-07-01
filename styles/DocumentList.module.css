@@ -1,0 +1,70 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Roboto', Arial, sans-serif;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  
+  .cardBody {
+    padding: 0;
+  }
+  
+  .cardTitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1E3A8A;
+    margin-bottom: 20px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .cardItem {
+    background-color: #f9fafb;
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.2s;
+  }
+  
+  .cardItem:hover {
+    transform: translateY(-5px);
+  }
+  
+  .cardBodyItem {
+    text-align: center;
+  }
+  
+  .docName {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1E3A8A;
+    margin-top: 10px;
+  }
+  
+  .docType {
+    color: #6b7280;
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .uploadDate {
+    color: #4B5EAA;
+    font-size: 12px;
+  }
+  
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }

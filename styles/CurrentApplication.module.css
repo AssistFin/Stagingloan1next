@@ -1,0 +1,228 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1E3A8A;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cardHeader h5 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1E3A8A;
+}
+
+.date {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.cardBody {
+  padding: 0;
+}
+
+.message {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.message h6 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1E3A8A;
+}
+
+.success {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.subtext {
+  color: #4B5EAA;
+  font-size: 14px;
+}
+
+.progressContainer {
+  margin: 20px 0;
+}
+
+.progressBar {
+  height: 12px;
+  border-radius: 6px;
+  background-color: #e9ecef;
+  display: flex;
+}
+
+.progressSegment {
+  height: 100%;
+  transition: background-color 0.3s;
+}
+
+.active {
+  background-color: #10b981;
+}
+
+.stepLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.stepLabel.active {
+  color: #1E3A8A;
+  font-weight: 500;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1E3A8A;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.subTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.badgeSuccess {
+  background-color: #10b981;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .cardHeader h5 {
+    font-size: 18px;
+  }
+
+  .date {
+    font-size: 12px;
+  }
+
+
+  .message {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+
+  .message h6 {
+    font-size: 14px;
+  }
+
+  .success {
+    font-size: 14px;
+  }
+
+  .subtext {
+    font-size: 12px;
+  }
+
+  .progressContainer {
+    margin: 15px 0;
+  }
+
+  .progressBar {
+    height: 10px;
+  }
+
+  .stepLabels {
+    font-size: 10px;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .stepLabel {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+@media (max-width: 430px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .cardHeader h5 {
+    font-size: 16px;
+  }
+
+  .date {
+    font-size: 10px;
+  }
+
+
+  .message {
+    margin-bottom: 10px;
+  }
+
+  .message h6 {
+    font-size: 12px;
+  }
+
+  .success {
+    font-size: 12px;
+  }
+
+  .subtext {
+    font-size: 10px;
+  }
+
+  .progressContainer {
+    margin: 10px 0;
+  }
+
+  .progressBar {
+    height: 8px;
+  }
+
+  .stepLabels {
+    font-size: 8px;
+    gap: 3px;
+  }
+}

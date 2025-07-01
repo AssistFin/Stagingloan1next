@@ -1,0 +1,275 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Add these to your existing styles */
+.payNowButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 10px 0;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.payNowButton:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+.payNowButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* For disabled state when no payment is due */
+.payNowButton:disabled:not(.loading) {
+  background-color: #f0f0f0;
+  color: #888;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1E3A8A;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.cardBody {
+  padding: 0;
+}
+
+.verticalTable {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tableRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cell {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 15px;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4B5EAA;
+}
+
+.cell span:first-child {
+  font-weight: 600;
+  color: #1E3A8A;
+  min-width: 150px;
+}
+
+.cell span:last-child {
+  text-align: right;
+  flex-grow: 1;
+}
+
+.cellFull {
+  padding: 8px 15px;
+  text-align: left;
+}
+
+.tableSmall {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tableSmallRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.smallCell {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  font-size: 12px;
+}
+
+.smallCell span:first-child {
+  font-weight: 600;
+  color: #1E3A8A;
+  min-width: 120px;
+}
+
+.downloadBtn {
+  display: inline-block;
+  padding: 6px 10px;
+  background-color: #d65025;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.downloadBtn:hover {
+  background-color: #b7431d;
+}
+
+.toggleBtn {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  width: 100%;
+  text-align: left;
+  margin-top: 5px;
+}
+
+.toggleBtn:hover {
+  background-color: #eee;
+}
+
+@media (max-width: 993px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .cell {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .smallCell {
+    padding: 3px;
+    font-size: 10px;
+  }
+
+  .toggleBtn {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .card {
+    padding: 8px;
+  }
+
+  .cell {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+
+  .smallCell {
+    padding: 2px;
+    font-size: 9px;
+  }
+
+  .downloadBtn {
+    padding: 4px 6px;
+    font-size: 0.8rem;
+  }
+
+  .toggleBtn {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+}
+
+@media (max-width: 481px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .card {
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  .cell {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+
+  .smallCell {
+    padding: 2px;
+    font-size: 8px;
+  }
+
+  .downloadBtn {
+    padding: 3px 5px;
+    font-size: 0.7rem;
+  }
+
+  .toggleBtn {
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+}
+
+.paymentAction {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dueDateWarning {
+  color: #d32f2f;
+  font-size: 14px;
+  text-align: center;
+}
+
+.errorAlert {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.repaymentHistory {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.paymentRecord {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.noLoans {
+  text-align: center;
+  padding: 24px;
+  color: #666;
+}

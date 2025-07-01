@@ -1,0 +1,213 @@
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .progressContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 20px; */
+  }
+  
+  .step {
+    display: flex;
+    align-items: center;
+  }
+  
+  .circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .activeCircle {
+    background-color: #4caf50;
+  }
+  
+  .line {
+    width: 40px;
+    height: 2px;
+    background-color: #d3d3d3;
+  }
+  
+  .heading {
+    font-size: 24px;
+    font-weight: bold;
+    /* margin-bottom: 10px; */
+    color: #1e3a8a;
+  }
+  
+  .subheading {
+    font-size: 12px;
+    color: #666;
+    /* margin-bottom: 20px; */
+  }
+  
+  .otpImage img {
+    margin: 20px auto;
+  }
+  
+  .otpHeading {
+    font-size: 21px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .otpDescription,
+  .otpInstruction {
+    color: #666;
+    font-size: 11px;
+    margin-bottom: 5px;
+    /* margin: 10px 0; */
+  }
+  
+/* OTP Section */
+.otpContainer {
+    display: flex;
+    justify-content: center;
+    /* margin: 20px 0; */
+    /* flex-direction: column; */
+    gap: 2px;
+  }
+  
+  .otpTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    /* margin-bottom: 10px; */
+  }
+  
+  .otpSubtitle {
+    font-size: 1rem;
+    color: white;
+    /* margin-bottom: 10px; */
+  }
+  
+  .otpInstruction {
+    font-size: 1rem;
+    color: white;
+    /* margin-bottom: 20px; */
+  }
+
+  .otpInputContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .otpInput {
+    width: 55px;
+    height: 60px; /* Increased height to give more vertical space */
+    font-size: 24px;
+    text-align: center;
+    border: 2px solid #1e3a8a;
+    border-radius: 5px;
+    line-height: 60px; /* Match the height to center the text vertically */
+    padding: 0; /* Remove any padding that might interfere */
+    box-sizing: border-box; /* Ensure padding/border are included in dimensions */
+  }
+
+  
+  .error {
+    border: 2px solid red !important; /* Red border for empty fields */
+  }
+  
+  .nextButton {
+    height: 40px;
+    background-color: #004aad;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .nextButton:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .resendContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px auto;
+    max-width: 330px;
+  }
+  
+  .resendButton {
+    background: none;
+    border: none;
+    color: #4caf50;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+  }
+  
+  .resendButton:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .timer {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .nextButton {
+    margin-top: 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .continueButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .continueButton:hover {
+    background-color: #45a049;
+  }
+  .backButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #4c31c2;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  
+  .backButton:hover {
+    background-color: #040b91;
+  }
+
+  .errorMessage {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }

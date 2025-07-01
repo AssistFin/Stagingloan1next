@@ -1,0 +1,352 @@
+.profileContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1E3A8A;
+}
+
+.editButton {
+  background-color: #1E3A8A;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.editButton:hover {
+  background-color: #F7901A;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.cardBody {
+  padding: 0;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1E3A8A;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4B5EAA;
+}
+
+.input, .textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #4B5EAA;
+  background-color: #f9fafb;
+  transition: border-color 0.3s;
+}
+
+.input:focus, .textarea:focus {
+  outline: none;
+  border-color: #1E3A8A;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+
+.tableResponsive {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 12px 15px;
+  text-align: left;
+  color: #4B5EAA;
+}
+
+.table th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+  color: #1E3A8A;
+}
+
+.table tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table tr:hover {
+  background-color: #f9fafb;
+}
+
+.docName {
+  display: flex;
+  align-items: center;
+}
+
+.badgeRequired {
+  background-color: #ef4444;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.uploaded {
+  background-color: #10b981;
+  color: white;
+}
+
+.notUploaded {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.description {
+  color: #6b7280;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.uploadButton {
+  background-color: #1E3A8A;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.uploadButton:hover {
+  background-color: #F7901A;
+}
+
+.fileInput {
+  display: none;
+}
+
+.saveButton {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: background-color 0.3s;
+}
+
+.saveButton:hover {
+  background-color: #059669;
+}
+
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  padding: 10px;
+  padding-right: 40px;
+  font-size: 16px;
+  border: 2px solid #1e3a8a;
+  border-radius: 5px;
+  outline: none;
+  width: 100%; 
+}
+
+.calendarIcon {
+  position: absolute;
+  right: 10px; 
+  color: #1e3a8a; 
+  font-size: 20px; 
+  pointer-events: none;
+}
+
+.ccalendar {
+  max-width: 400px;
+  margin: auto;
+  border: 2px solid #1e3a8a !important;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+}
+
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+ 
+  .tableResponsive {
+    overflow-x: visible;
+  }
+
+  .table {
+    display: block;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tbody {
+    display: block;
+  }
+
+  .table tr {
+    display: block;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e5e7eb;
+    padding: 10px 0;
+  }
+
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 8px 10px;
+    border: none;
+    position: relative;
+  }
+
+  
+  .table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #1E3A8A;
+    width: 40%;
+    padding-right: 10px;
+  }
+
+  .table td:not(:last-child) {
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+ 
+  .table .docName {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .table .badgeRequired {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .table .badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .table .description {
+    font-size: 12px;
+  }
+
+  .table .uploadButton {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .table .action {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 430px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .editButton, .saveButton {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+ 
+  .table td {
+    padding: 6px 8px;
+  }
+
+  .table .description {
+    font-size: 11px;
+  }
+
+  .table .uploadButton {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+}

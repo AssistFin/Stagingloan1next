@@ -1,0 +1,110 @@
+.container {
+    background-color: #f9fafb;
+    font-family: 'Roboto', Arial, sans-serif;
+    padding-top: 70px; /* Adjust for fixed navbar height */
+    padding-bottom: 120px; /* Adjust for footer height */
+    min-height: calc(100vh - 70px); /* Ensure content pushes footer down */
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .heroTitle {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .heroSubtitle {
+    font-size: 20px;
+    font-weight: 400;
+  }
+  
+  /* Section Styles */
+  .section {
+    padding: 40px 0;
+  }
+  
+  .policyCard {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .sectionTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1E3A8A;
+    margin-bottom: 20px;
+  }
+  
+  .sectionText {
+    font-size: 16px;
+    color: #4B5EAA;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .list li {
+    font-size: 16px;
+    color: #4B5EAA;
+    margin-bottom: 10px;
+  }
+  
+  .link {
+    color: #F7901A;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .link:hover {
+    color: #e07b00;
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 40px 0;
+    }
+  
+    .heroTitle {
+      font-size: 36px;
+    }
+  
+    .heroSubtitle {
+      font-size: 16px;
+    }
+  
+    .section {
+      padding: 30px 0;
+    }
+  
+    .policyCard {
+      padding: 20px;
+    }
+  
+    .sectionTitle {
+      font-size: 24px;
+    }
+  
+    .sectionText {
+      font-size: 14px;
+    }
+  
+    .list li {
+      font-size: 14px;
+    }
+  }

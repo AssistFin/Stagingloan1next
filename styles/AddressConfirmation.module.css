@@ -1,0 +1,141 @@
+/* AddressConfirmation.module.css */
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.progressContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-bottom: 20px; */
+}
+
+.step {
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #d3d3d3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+
+.activeCircle {
+  background-color: #4caf50;
+}
+
+.line {
+  width: 40px;
+  height: 2px;
+  background-color: #d3d3d3;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #1e3a8a;
+}
+
+.subheading {
+  font-size: 12px;
+  color: #666;
+  /* margin-bottom: 20px; */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.formLabel {
+  font-size: 15px;
+  color: #333;
+  font-weight: bold;
+  /* margin-bottom: 5px; */
+  text-align: left;
+  width: 100%;
+}
+
+.inputBox {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 2px solid #1e3a8a;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.error {
+  border: 2px solid red !important;
+}
+
+.inputBox:focus {
+  border-color: #4caf50;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #45a049;
+}
+
+.addressBox {
+  padding: 10px;
+  border: 2px solid #1e3a8a;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  text-align: left;
+  background-color: #f9f9f9;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.radioInput {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+
+.references {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #1e3a8a;
+}

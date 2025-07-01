@@ -1,0 +1,226 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+  padding: 40px 20px;
+  /* background: linear-gradient(135deg, #e6f0fa 0%, #f0f4f8 100%); */
+  text-align: center;
+  font-family: "Arial", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #1e3a8a;
+  /* letter-spacing: -0.5px; */
+  max-width: 450px; /* Matches statusContainer max-width */
+  width: 100%;
+  line-height: 1.2;
+}
+
+.message {
+  font-size: 12px;
+    color: #666;
+  font-weight: 400;
+  max-width: 415px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.statusContainer {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid #dfe6e9;
+  position: relative;
+}
+
+.statusHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.statusIcon {
+  font-size: 1.4rem;
+  color: #2ecc71;
+  background: #e8f8f0;
+  border-radius: 50%;
+  padding: 6px;
+}
+
+.subheading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2ecc71;
+  margin: 0;
+}
+
+.status {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  background: #e8f8f0;
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.progressBar {
+  width: 100%;
+  height: 4px;
+  background: #ecf0f1;
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progressFill {
+  height: 100%;
+  background: #2ecc71;
+  border-radius: 2px;
+}
+
+.note {
+  font-size: 12px;
+  color: #7f8c8d;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  max-width: 450px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #3498db 0%, #2980b9 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  background: linear-gradient(90deg, #2980b9 0%, #1e6da6 100%);
+  box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+  transform: translateY(-2px);
+}
+
+.backButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+}
+
+.buttonIcon {
+  font-size: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 15px;
+  }
+
+  .heading {
+    font-size: 24px;
+    max-width: 90%; /* Scales with container */
+  }
+
+  .message {
+    font-size: 12px;
+    max-width: 90%;
+  }
+
+  .statusContainer {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .statusHeader {
+    gap: 8px;
+  }
+
+  .statusIcon {
+    font-size: 1.2rem;
+    padding: 5px;
+  }
+
+  .subheading {
+    font-size: 1.2rem;
+  }
+
+  .status {
+    font-size: 1.1rem;
+  }
+
+  .backButton {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 10px;
+    min-height: 77vh;
+  }
+
+  .heading {
+    font-size: 24px;
+    max-width: 95%;
+  }
+
+  .message {
+    font-size: 12px;
+    max-width: 95%;
+  }
+
+  .statusContainer {
+    padding: 15px;
+    max-width: 95%;
+  }
+
+  .statusHeader {
+    gap: 6px;
+  }
+
+  .statusIcon {
+    font-size: 1.1rem;
+    padding: 4px;
+  }
+
+  .subheading {
+    font-size: 1.1rem;
+  }
+
+  .status {
+    font-size: 1rem;
+  }
+
+  .backButton {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,210 @@
+.viewLoansContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 78vh;
+  background-color: #f5faff; /* Light blue background for a clean look */
+  padding: 20px;
+}
+
+.viewLoansContent {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 30px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.loading,
+.error,
+.noData {
+  font-size: 18px;
+  color: #34495e;
+  text-align: center;
+}
+
+.loanId {
+  font-size: 12px;
+  color: #7f8c8d;
+  /* margin-bottom: 10px; */
+}
+
+.loanAmount {
+  color: #1e3a8a;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.approvedAmount {
+  color: #7f8c8d;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.loanDetails {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.loanInfoGrid {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.loanInfoItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  font-size: 14px;
+  color: #34495e;
+  font-weight: 600;
+  margin: 0;
+}
+
+.value {
+  font-size: 14px;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.repaymentScheduleTitle {
+  color: #1e3a8a;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 15px 0 10px;
+}
+
+.repaymentDetails {
+  font-size: 14px;
+  color: #34495e;
+  margin-bottom: 15px;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+}
+
+.checkboxLabel {
+  font-size: 14px;
+  color: #34495e;
+}
+
+.link {
+  font-size: 14px;
+  color: red;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.submitButton {
+  background: #1e3a8a;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submitButton:hover {
+  background: #2980b9;
+}
+
+.declineButton {
+  background: #e74c3c;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.declineButton:hover {
+  background: #c0392b;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .viewLoansContent {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .loanAmount {
+    font-size: 28px;
+  }
+
+  .repaymentScheduleTitle {
+    font-size: 16px;
+  }
+
+  .submitButton,
+  .declineButton {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .viewLoansContainer{
+    min-height: 62svh;
+  }
+  .viewLoansContent {
+    padding: 15px;
+  }
+
+  .loanAmount {
+    font-size: 24px;
+  }
+
+  .loanInfoGrid {
+    gap: 10px;
+  }
+
+  .label,
+  .value {
+    font-size: 13px;
+  }
+
+  .repaymentScheduleTitle {
+    font-size: 15px;
+  }
+
+  .repaymentDetails {
+    font-size: 13px;
+  }
+
+  .submitButton,
+  .declineButton {
+    font-size: 13px;
+    padding: 8px;
+  }
+}

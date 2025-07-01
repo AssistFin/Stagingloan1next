@@ -1,0 +1,374 @@
+/* styles/Login.module.css */
+.pageContainer {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f9fafb; /* Light gray background like the second design */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+  min-height: 85vh; /* Full viewport height */
+  width: 100%; /* Ensures full width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pageContainer h3{
+  color: #1e3a8a;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 15px 0 10px;
+}
+
+/* Header styles */
+.welcomeText {
+  color: #1e3a8a;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.mainTitle {
+  color: #1e3a8a;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.subTitle {
+  color: #1e3a8a;
+  font-size: 1.5em;
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+
+.brandHighlight {
+  color: #0d6efd;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+/* Tagline styles */
+.tagline {
+  margin-bottom: 17px;
+  color: #1e3a8a;
+  font-weight: 500;
+}
+
+.tagline span {
+  margin: 0 15px;
+}
+
+/* Card styles (now more like a container within the banner) */
+.card {
+  max-width: 500px;
+  width: 100%;
+  background: transparent; /* Remove the gradient and background image */
+  padding: 0; /* Remove padding since the parent handles it */
+  box-shadow: none; /* Remove shadow since the parent has it */
+}
+
+/* Remove the overlay since we no longer have a background image */
+.card::before {
+  content: none; /* Remove the overlay */
+}
+
+/* No need for z-index adjustments since there's no overlay */
+.title,
+.loginForm,
+.otpContainer,
+.otpTitle,
+.otpSubtitle,
+.otpInstruction,
+.otpInputContainer,
+.nextButton,
+.errorMessage,
+.otpFooter,
+.resendButton,
+.timer {
+  position: static; /* Reset positioning */
+}
+
+/* Title (not used anymore, but keeping for reference) */
+.title {
+  font-size: 37px;
+  font-weight: bold;
+  color: #0a1023;
+  margin-bottom: 20px;
+}
+
+/* Login Form Styling */
+.loginForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.inputButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto 10px;
+  flex-wrap: wrap;
+}
+
+.input {
+  padding: 12px 15px;
+  font-size: 1em;
+  border: 2px solid #1e3a8a;
+  /* border-right: none; */
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  flex: 1;
+  box-sizing: border-box;
+  background: #f3f4f6;
+  min-width: 300px;
+  margin-bottom: 5px;
+}
+.error {
+  border: 2px solid red !important; /* Red border for empty fields */
+}
+
+.loginButton {
+  padding: 12px 25px;
+  font-size: 1em;
+  background-color: #1e3a8a;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-bottom: 5px;
+}
+
+.loginButton:hover {
+  background-color: #163172;
+}
+
+.loginButton:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* OTP Section */
+.otpContainer {
+  margin-top: 20px;
+}
+
+.otpTitle {
+  color: #1e3a8a;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.otpSubtitle {
+  color: #1e3a8a;
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.otpInstruction {
+  font-size: 1rem;
+  color: #1e3a8a;
+}
+
+.otpInputContainer {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin: 20px 0;
+  color: #1e3a8a;
+}
+
+.otpInput {
+  width: 58px;
+  height: 40px;
+  font-size: 1.2em;
+  text-align: center;
+  border: 2px solid #1e3a8a;
+  border-radius: 5px;
+  outline: none;
+}
+
+.nextButton {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #1e3a8a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nextButton:hover {
+  background-color: #163172;
+}
+
+/* Error Message */
+.errorMessage {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Resend and Timer */
+.otpFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.resendButton {
+  background: none;
+  border: none;
+  color: #1e3a8a;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.resendButton:disabled {
+  cursor: not-allowed;
+  color: #999;
+}
+
+.timer {
+  font-size: 0.9em;
+  color: #1e3a8a;
+}
+
+/* Terms and Conditions */
+.termsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* margin-top: 20px; */
+}
+
+.termsCheckbox {
+  display: flex;
+  align-items: center;
+}
+
+.termsLabel label {
+  font-size: 0.9em;
+}
+
+.termsLink {
+  color: red;
+  text-decoration: underline;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 40px 15px;
+    min-height: 90vh;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 413px) {
+  .inputButtonContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .input {
+    width: 100%;
+    border-radius: 5px;
+    border-right:  2px solid #1e3a8a;
+  }
+
+  .loginButton {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .termsContainer {
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding: 0 10px;
+  }
+
+  .termsCheckbox input[type="checkbox"] {
+    margin-bottom: 0;
+  }
+
+  .termsLabel label {
+    font-size: 0.8em;
+    text-align: left;
+  }
+}
+
+@media (max-width: 380px) {
+  .mainTitle {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #1e3a8a;
+  }
+
+  .otpInput {
+    width: 50px;
+    height: 35px;
+    font-size: 1em;
+  }
+
+  .nextButton {
+    font-size: 14px;
+  }
+  .input{
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 430px){
+  .pageContainer{
+    margin-top: 0px;
+  }
+  .welcomeText{
+    font-size: 27px;
+    margin-top: 0px;
+  }
+  .mainTitle{
+    font-size: 30px;
+    margin-top: 0px;
+  }
+  .subTitle{
+    font-size: 27px;
+    margin-bottom: 18px;
+    margin-top: 0px;
+  }
+}
+@media (max-width: 480px){
+  .pageContainer{
+    min-height: 75svh;
+  }
+  .termsContainer {
+    /* gap: 5px; */
+    padding: 0 30px;
+  }
+}
+@media (max-width: 522px){
+  .loginButton{
+    width: 100%;
+  }
+  .termsContainer{
+    gap: 15px;
+  }
+}
+@media (max-width: 480px){
+  .termsCheckbox{
+    margin-bottom: 15px;
+  }
+}

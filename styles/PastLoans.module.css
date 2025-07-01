@@ -1,0 +1,151 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1E3A8A;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.cardBody {
+  padding: 0;
+}
+
+.tableResponsive {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 12px 15px;
+  text-align: left;
+  color: #4B5EAA;
+}
+
+.table th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+  color: #1E3A8A;
+}
+
+.table tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table tr:hover {
+  background-color: #f9fafb;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.success {
+  background-color: #10b981;
+  color: white;
+}
+
+.warning {
+  background-color: #f59e0b;
+  color: white;
+}
+
+
+@media (max-width: 992px) {
+  .title {
+    font-size: 24px;
+  }
+
+ 
+  .tableResponsive {
+    overflow-x: visible;
+  }
+
+  .table {
+    display: block;
+  }
+
+  .table thead {
+    display: none; 
+  }
+
+  .table tbody {
+    display: block;
+  }
+
+  .table tr {
+    display: block;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e5e7eb;
+    padding: 10px 0;
+  }
+
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 8px 10px;
+    border: none;
+    position: relative;
+  }
+
+ 
+  .table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #1E3A8A;
+    width: 40%;
+    padding-right: 10px;
+  }
+
+  .table td:not(:last-child) {
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+ 
+  .table .badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}
+
+@media (max-width: 430px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+ 
+  .table td {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .table .badge {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+}
