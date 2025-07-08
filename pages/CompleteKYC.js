@@ -136,29 +136,32 @@ export default function CompleteKYC({ startLoading, stopLoading }) {
         // Removed success alert, redirecting directly
         router.replace("/aadharverification");
       } else {
-        setAlertData({
-          type: "error",
-          title: "Error!",
-          message:
-            response.data?.message ||
-            "PAN verification failed. Please check your details.",
-        });
+        throw { response: { data: response.data } };
       }
     } catch (error) {
-      console.error(error);
-      stopLoading();
+      console.log("FULL ERROR:", error);
+      console.log("ERROR DATA:", error.response?.data);
+
+      let msg = "Something went wrong!";
+
+      if (typeof error.response?.data?.message === "string") {
+        msg = error.response.data.message;
+      } else if (Array.isArray(error.response?.data?.message?.error)) {
+        msg = error.response.data.message.error[0];
+      } else {
+        msg = JSON.stringify(error.response?.data?.message);
+      }
+
       setAlertData({
         type: "error",
         title: "Error!",
-        message:
-          error.response?.data?.message ||
-          "Something went wrong. Please try again.",
+        message: msg,
       });
     } finally {
-      stopLoading();
-      setLoading(false);
-    }
-  };
+        stopLoading();
+        setLoading(false);
+      }
+    };
 
   const formatDateToLocalISOString = (date) => {
     const year = date.getFullYear();

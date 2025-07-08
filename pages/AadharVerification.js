@@ -50,10 +50,14 @@ export default function AadharVerification({ startLoading, stopLoading }) {
         // Removed success alert, redirecting directly
         router.push("/verifyotp");
       } else {
+        const msg = response.message.error[0];
+        const msg1 = "Failed to request OTP. Please try again.";
+        let testval;
+        if(response.data.reference_id === null){ testval = msg; }else{ testval = msg;}
         setAlertData({
           type: "error",
           title: "Error!",
-          message: response.data?.message || "Failed to request OTP. Please try again.",
+          message: testval,
         });
       }
     } catch (error) {

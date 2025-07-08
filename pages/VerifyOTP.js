@@ -53,10 +53,14 @@ export default function VerifyOTP({ startLoading, stopLoading }) {
         // Removed success alert, redirecting directly
         router.push("/submitselfie");
       } else {
+        const msg = response.message.error[0];
+        const msg1 = "Incorrect OTP. Please try again.";
+        let testval;
+        if(response.data.status === "error"){ testval = msg; }else{ testval = msg;}
         setAlertData({
           type: "error",
           title: "Error!",
-          message: response.message || "Incorrect OTP. Please try again.",
+          message: testval,
         });
       }
     } catch (err) {
