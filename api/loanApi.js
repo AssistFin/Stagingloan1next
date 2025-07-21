@@ -251,3 +251,33 @@ export const updateLoanStep = async (currentStep, nextStep) => {
     throw error;
   }
 };
+
+export const fetchLoanBankDetails = async () => {
+  try {
+    const data = await fetchLoanApplicationData(); // same helper
+    if (data) {
+      return data.bank_details;
+    }
+    return null;
+  } catch (err) {
+    console.error("Failed to fetch bank details", err);
+    return null;
+  }
+};
+
+export const submitEnachMandate = async (payload) => {
+  try {
+        const applicationData = await fetchLoanApplicationData();
+        const data1 = {
+        loan_application_id: applicationData.id, 
+        user_id: applicationData.user_id, 
+        loan_number: applicationData.loan_no, 
+        payload
+      };
+      const response = await axios.post(`${BASE_URL}/enach`, data1, getAuthHeaders());
+      return response.data;
+  } catch (err) {
+    console.error("Failed to submit ENACH", err);
+    return null;
+  }
+};

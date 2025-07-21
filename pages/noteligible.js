@@ -24,11 +24,11 @@ const NotEligible = () => {
             </li>
             <li>
               <strong>Get Help:</strong>{' '}
-              <a href="mailto:info@assistfin.com" className={styles.link}>
+              <a href="mailto:care@loanone.in" className={styles.link}>
                 Email us
               </a>{' '}
               or call{' '}
-              <a href="tel:7700840543" className={styles.link}>7700840543</a> for assistance.
+              <a href="tel:9211717788" className={styles.link}>9211717788</a> for assistance.
             </li>
             <li>
               <strong>Explore Options:</strong> Reapply after meeting the criteria or explore other products.

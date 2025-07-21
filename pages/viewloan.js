@@ -40,7 +40,7 @@ export default function ViewLoans({ startLoading, stopLoading }) {
     try {
       const response = await acceptLoan(viewLoanData.kfs_path);
       if (response.status) {
-        router.push("/loandisbursal");
+        router.push("/enachmandate");
       } else {
         alert("Loan acceptance failed. Please try again.");
       }
