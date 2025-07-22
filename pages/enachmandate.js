@@ -110,7 +110,7 @@ export default function EnachMandate() {
       />
 
       <div className={styles.container}>
-        <h4>e-NACH Mandate with Altura Financial Services Ltd</h4>
+        <h4>e-NACH Mandate in favour of Altura Financial Services Ltd. (via LoanOne)</h4>
 
         {!submitted && (
           <form onSubmit={handleProceed} className={styles.form}>
@@ -144,7 +144,7 @@ export default function EnachMandate() {
               <button
                 type="submit"
                 onClick={handleCheckout}
-                className={styles.button}
+                className={styles["custom-blue-button"]}
               >
                 Continue
               </button>

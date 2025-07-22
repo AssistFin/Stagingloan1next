@@ -60,3 +60,23 @@
   cursor: not-allowed;
 }
 
+.custom-blue-button {
+  background-color: #007bff; /* Bootstrap blue */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  display: block;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+}
+
+.custom-blue-button:hover {
+  background-color: #0056b3;
+}
+
