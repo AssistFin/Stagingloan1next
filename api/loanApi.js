@@ -281,3 +281,29 @@ export const submitEnachMandate = async (payload) => {
     return null;
   }
 };
+
+export const getEnachStatus = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/apply`, getAuthHeaders());
+    const data = await response.json();
+    
+    if (data.status == true && data.data) {
+      if(data.data.enachData?.status == 'ACTIVE')
+      {
+          const applicationData = await fetchLoanApplicationData();
+            const data1 = {
+            loan_application_id: applicationData.id, 
+            current_step: 'cashfreeredirect', 
+            next_step: 'loandisbursal',
+          };
+          const response = await axios.post(`${BASE_URL}/update-loan-step`, data1, getAuthHeaders());
+      }
+      return data.data.enachData?.status || null;
+    }else{
+      return 'INITIALIZED';
+    }
+  } catch (err) {
+    console.error("Error fetching ENACH status:", err);
+    return null;
+  }
+};

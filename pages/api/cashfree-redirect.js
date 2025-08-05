@@ -8,7 +8,7 @@ export default function handler(req, res) {
           <script>
             // Redirect after 1 second
             setTimeout(function() {
-              window.location.href = '/loandisbursal';
+              window.location.href = '/cashfreeredirect';
             }, 1000);
           </script>
         </head>
