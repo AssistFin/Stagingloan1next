@@ -52,11 +52,25 @@ export default function LoanStatus({ startLoading, stopLoading }) {
         {loan.repay_date && (
           <div className={styles.repaymentItem}>
             <p className={styles.repaymentDate}>
-              <strong>Due Date:</strong> {new Date(loan.repay_date).toLocaleDateString()}
+              Approved Amount : ₹{parseFloat(loan.approval_amount).toFixed(2)}
+            </p>
+            <p className={styles.repaymentDate}>
+              Disbursal Amount : ₹{parseFloat(loan.disbursal_amount).toFixed(2)}
+            </p>
+            <p className={styles.repaymentDate}>
+              Processing Fee+Tax : ₹{(Number(loan?.processing_fee_amount || 0) + Number(loan?.gst_amount || 0)).toFixed(2)}
             </p>
             <p className={styles.repaymentAmount}>
-              <strong>Amount:</strong> ₹{parseFloat(loan.repayment_amount).toFixed(2)}
+              Loan Tenure : {(loan.loan_tenure_days)} Days
             </p>
+            <p className={styles.repaymentDate}>
+              <strong>Repayment Due Date : </strong> <strong>{new Date(loan.repay_date).toLocaleDateString('en-GB')}</strong>
+            </p>
+            <p className={styles.repaymentAmount}>
+              <strong>Repayment Amount : </strong> <strong>₹{parseFloat(loan.repayment_amount).toFixed(2)}</strong>
+            </p>
+            
+            <p> <strong>Lending Partner (NBFC) : Altura Financial Services Ltd.</strong></p>
             <p
               className={`${styles.repaymentStatus} ${
                 loanDisbursal ? styles.statusPaid : styles.statusOverdue
@@ -68,8 +82,8 @@ export default function LoanStatus({ startLoading, stopLoading }) {
         )}
       </div>
         <div className={styles.helpText}>
-              <p>Your Loan Amount will be disbursed in next 2 Hours</p>
-              <p>Need help for payment, please call at +917700840543</p>
+              <p>Your Loan Amount will be disbursed in next 2 Hours.</p>
+              <p>Need help for payment, please call at +91 9211717788</p>
             </div>
     </div>
   );
