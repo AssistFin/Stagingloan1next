@@ -64,6 +64,8 @@ export default function EnachMandate() {
       if (res && res.status && res.link) {
         setSubsSessionId(res.link);
         setSubmitted(true);
+      } else if(res?.message === 'Due to modify loan') {
+        router.replace("/viewloan");
       } else {
         setError(res?.message || "ENACH mandate failed.");
       }

@@ -41,6 +41,8 @@ export default function ViewLoans({ startLoading, stopLoading }) {
       const response = await acceptLoan(viewLoanData.kfs_path);
       if (response.status) {
         router.push("/enachmandate");
+      } else if(response.status === false){
+        router.push("/loandisbursal");
       } else {
         alert("Loan acceptance failed. Please try again.");
       }
@@ -98,6 +100,7 @@ export default function ViewLoans({ startLoading, stopLoading }) {
             Due Date: {new Date(viewLoanData.repay_date).toLocaleDateString()} | Amount: ₹
             {parseFloat(viewLoanData.repayment_amount).toFixed(2)}
           </p>
+          <p> <strong>Lending Partner (NBFC) : Altura Financial Services Ltd.</strong></p>
 
           <div className={styles.checkboxContainer}>
             <input type="checkbox" id="terms" className={styles.checkbox} />

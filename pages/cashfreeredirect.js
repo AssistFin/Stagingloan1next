@@ -23,9 +23,11 @@ export default function CashfreeRedirect() {
         window.location.href = "/enachmandate";
         return;
       } else if (status === "INITIALIZED") {
-        setStatusMessage(" Status: INITIALIZED... Please wait forawhile.");
+        setStatusMessage(" Status: INITIALIZED... Please wait for a while.");
       } else if (status === "PENDING") {
-        setStatusMessage(" Status: PENDING... Please wait forawhile.");
+        setStatusMessage(" Status: PENDING... Please wait for a while.");
+      } else if (status === "INACTIVE") {
+        window.location.href = "/viewloan";
       } else {
         setStatusMessage(" Unknown status received. Please wait...");
       }
