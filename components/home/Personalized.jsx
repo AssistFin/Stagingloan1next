@@ -18,16 +18,17 @@ const Personalized = () => {
                 <h3 className="title" style={{fontSize: '27px'}}>Need a Personalized Solution?</h3>
                 <p>We understand every professional’s needs are unique. Connect with us and we’ll craft a loan
 solution that fits your salary, lifestyle, and financial goals.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                 <p><strong>Basic Eligibility:</strong></p>
                 <ul class="list">
-                <li class="list-item d-flex align-items-center">
-                <span class="check d-flex align-items-center justify-content-center"></span><span>Minimum monthly salary: ₹20,000+</span></li>
-                <li class="list-item d-flex align-items-center">
-                <span class="check d-flex align-items-center justify-content-center"></span><span>Age: 21 – 55 years</span></li>
-                <li class="list-item d-flex align-items-center">
-                <span class="check d-flex align-items-center justify-content-center"></span><span>Salaried with a stable income source</span></li>
-                <li class="list-item d-flex align-items-center">
-                <span class="check d-flex align-items-center justify-content-center"></span><span>Valid bank account &amp; KYC documents</span></li>
+                  <li class="list-item d-flex align-items-center">
+                  <span class="check d-flex align-items-center justify-content-center"></span><span>Minimum monthly salary: ₹30,000+</span></li>
+                  <li class="list-item d-flex align-items-center">
+                  <span class="check d-flex align-items-center justify-content-center"></span><span>Age: 21 – 55 years</span></li>
+                  <li class="list-item d-flex align-items-center">
+                  <span class="check d-flex align-items-center justify-content-center"></span><span>Salaried with a stable income source</span></li>
+                  <li class="list-item d-flex align-items-center">
+                  <span class="check d-flex align-items-center justify-content-center"></span><span>Valid bank account &amp; KYC documents</span></li>
                 </ul>
               </div>
               {/* <Link href="/register" className="cmn-btn">

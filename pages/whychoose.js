@@ -47,7 +47,7 @@ const WhyChoose = () => {
     <section className={styles['why-choose-section']}>
       <div className={styles['section-container']}>
         <h2 className={styles['section-title']}>
-          Why Choose <span className={styles.highlight}>LoanOne</span>
+          Why Choose <span className={styles.highlight}style={{color: '#062478'}}><strong>Loan</strong></span><span className={styles.highlight} style={{color: '#0a8a1d'}}><strong>One</strong></span>
         </h2>
         <p className={styles['section-description']}>
           Our innovative fintech platform combines cutting-edge technology with personalized service to 

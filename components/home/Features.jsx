@@ -18,7 +18,7 @@ const Features = () => {
                     <Image src={notification} alt="icon" />
                   </span>
                   <h5 className="sub-title" style={{ fontSize: '27px'}}>Smart Banking</h5>
-                  <h2 className="title" style={{fontSize: '27px'}}>Why <span style={{ color: '#0D6EFD'}}>LoanOne</span></h2>
+                  <h2 className="title" style={{fontSize: '27px'}}>Why <span style={{color: '#062478'}}><strong>Loan</strong></span><span style={{color: '#0a8a1d'}}><strong>One</strong></span></h2>
                   <p>
                     At LoanOne, we are dedicated to simplifying the borrowing
                     process, offering tailored solutions that empower both
