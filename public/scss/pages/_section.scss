@@ -1739,9 +1739,9 @@
         transition: 0.3s;
       }
       p {
-        visibility: hidden;
+       /* visibility: hidden;
         transition: 0.3s;
-        opacity: 0;
+        opacity: 0;*/
       }
     }
     &.active {

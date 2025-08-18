@@ -12,10 +12,10 @@ const HowItWork = () => {
           <div>
             <div className="col-lg-8">
               <div className="section-header">
-                <h5 className="sub-title" style={{ fontSize: '27px'}}>A Better Way to Loan</h5>
-                <h2 className="title" style={{ fontSize: '27px'}}>How it works</h2>
+                <h5 className="sub-title" style={{ fontSize: '27px'}}>A Better Way to Borrow</h5>
+                <h2 className="title" style={{ fontSize: '27px'}}>How It Works for Salaried Professionals</h2>
                 <p>
-                Experience a hassle-free loan application process
+                Simple, transparent, and designed for your convenience.
                 </p>
               </div>
             </div>
@@ -43,8 +43,7 @@ const HowItWork = () => {
                     <div className="col-lg-10 col-9">
                       <div className="right-side">
                         <h4>Check Your Eligibility</h4>
-                        <p>
-                        Quickly check your loan eligibility—simple, fast, and tailored to your needs. Start now and take the first step toward your goals!
+                        <p>Enter your monthly salary details (₹30,000+ per month) and instantly know if you qualify.
                         </p>
                       </div>
                     </div>
@@ -70,11 +69,7 @@ const HowItWork = () => {
                     <div className="col-lg-10 col-9">
                       <div className="right-side">
                         <h4>Apply</h4>
-                        <p>
-                        Create your LoanOne account and 
-                        fill out the application
-                         for your chosen loan product.
-                        </p>
+                        <p>Fill out a quick digital application in just a few minutes — no paperwork hassle.</p>
                       </div>
                     </div>
                   </div>
@@ -99,9 +94,7 @@ const HowItWork = () => {
                     <div className="col-lg-10 col-9">
                       <div className="right-side">
                         <h4>Get Verified</h4>
-                        <p>
-                        Securely verify your identity and documents for quick approval.
-                        </p>
+                        <p>Our team verifies your employment and income details with minimal documentation.</p>
                       </div>
                     </div>
                   </div>
@@ -126,9 +119,7 @@ const HowItWork = () => {
                     <div className="col-lg-10 col-9">
                       <div className="right-side">
                         <h4>Approval & Disbursement</h4>
-                        <p>
-                        Upon approval, funds will be credited directly to your account.
-                        </p>
+                        <p>Once approved, funds are credited directly to your salary account within hours.</p>
                       </div>
                     </div>
                   </div>

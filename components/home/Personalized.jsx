@@ -16,10 +16,19 @@ const Personalized = () => {
             <div className="col-lg-6 col-xl-5 pt-120 pb-120">
               <div className="section-text">
                 <h3 className="title" style={{fontSize: '27px'}}>Need a Personalized Solution?</h3>
-                <p>
-                  Get in touch with us, and we will help you to create the right
-                  one for your business or personal needs.
-                </p>
+                <p>We understand every professional’s needs are unique. Connect with us and we’ll craft a loan
+solution that fits your salary, lifestyle, and financial goals.</p>
+                <p><strong>Basic Eligibility:</strong></p>
+                <ul class="list">
+                <li class="list-item d-flex align-items-center">
+                <span class="check d-flex align-items-center justify-content-center"></span><span>Minimum monthly salary: ₹20,000+</span></li>
+                <li class="list-item d-flex align-items-center">
+                <span class="check d-flex align-items-center justify-content-center"></span><span>Age: 21 – 55 years</span></li>
+                <li class="list-item d-flex align-items-center">
+                <span class="check d-flex align-items-center justify-content-center"></span><span>Salaried with a stable income source</span></li>
+                <li class="list-item d-flex align-items-center">
+                <span class="check d-flex align-items-center justify-content-center"></span><span>Valid bank account &amp; KYC documents</span></li>
+                </ul>
               </div>
               {/* <Link href="/register" className="cmn-btn">
                 Apply for a loan

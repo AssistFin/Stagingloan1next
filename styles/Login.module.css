@@ -1,7 +1,7 @@
 /* styles/Login.module.css */
 .pageContainer {
   text-align: center;
-  padding: 60px 20px;
+  padding: 30px 20px;
   background: #f9fafb; /* Light gray background like the second design */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -22,10 +22,9 @@
 
 /* Header styles */
 .welcomeText {
-  color: #1e3a8a;
   font-size: 1.5rem;
   margin-bottom: 5px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .mainTitle {

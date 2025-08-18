@@ -12,13 +12,8 @@ const Planning = () => {
             <div>
               <div className="section-text">
                 <h5 className="sub-title" style={{fontSize: '27px'}}>Financial Planning</h5>
-                <h2 className="title" style={{fontSize: '27px'}}>
-                  Let&apos;s plan your finances the right way
-                </h2>
-                <p>
-                  Lending that doesn&apos;t weigh you down. We know how hard it is
-                  to start something new, that&apos;s why we have the perfect plan
-                  for you.
+                <h2 className="title" style={{fontSize: '27px'}}>Smart Financial Solutions for Salaried Professionals</h2>
+                <p>Loans that fit your lifestyle, not weigh you down. Whether it&apos;s for travel, emergencies, or just a little extra till payday — LoanOne has you covered.
                 </p>
               </div>
               {/* <Link href="/register" className="cmn-btn">

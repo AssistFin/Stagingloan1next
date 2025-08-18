@@ -149,10 +149,8 @@ export default function LoginPage({ startLoading, stopLoading }) {
       >
         {!showOtpDialog && (
           <>
-            <h3 className={styles.welcomeText}>Welcome to World of</h3>
-            <h3 className={styles.mainTitle}>Financial Empowerment</h3>
-            <h3 className={styles.subTitle}>With</h3>
-            <h3 className={styles.subTitle} style={{color: '#0d6efd'}}>LoanOne</h3>
+            <h4 className={styles.welcomeText}>Welcome to World of Financial Empowerment with  <span className={styles.welcomeText} style={{color: '#062478'}}>Loan</span><span className={styles.welcomeText} style={{color: '#0a8a1d'}}>One</span></h4>
+            <h3 className={styles.subTitle}>Salary Advance Loans for Working Professionals</h3>
             <div className={styles.tagline}>
               <span>Reliability</span> | <span>Efficiency</span> |{" "}
               <span>Innovation</span>
