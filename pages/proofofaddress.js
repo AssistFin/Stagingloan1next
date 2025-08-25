@@ -57,7 +57,33 @@ export default function ProofOfAddress({ startLoading, stopLoading }) {
       return;
     }
 
-   
+      if (employmentType !== "Salaried") {
+      setAlertData({
+        type: "error",
+        title: "Not Eligible",
+        message: "Only salaried employees are eligible."
+      });
+      return;
+    }
+
+    if (parseInt(monthlyIncomeNumber, 10) < 25000) {
+      setAlertData({
+        type: "error",
+        title: "Not Eligible",
+        message: "Minimum monthly income should be ₹25,000."
+      });
+      return;
+    }
+
+    if (incomeReceivedIn !== "Account" && incomeReceivedIn !== "Cheque") {
+      setAlertData({
+        type: "error",
+        title: "Not Eligible",
+        message: "Income should be received in Account or Cheque."
+      });
+      return;
+    }
+
     const personalDetails = {
       dob,
       pinCode,
