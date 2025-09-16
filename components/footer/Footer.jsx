@@ -75,7 +75,6 @@ const Footer = () => {
         <li>
           <p>AssistFin Technologies Private Limited</p>
           <p>CIN No. U62090UP2024PTC209235</p>
-          <p>Reg. Off: T28-1802, Nirala Estate, Plot No. Gh4, Techzone IV, Gautam Buddha Nagar, Noida, Uttar Pradesh-201306</p>
           <p>Corp. Off: B-233, 2nd Floor, Pacific Business Park, Sahibabad, Ghaziabad, Uttar Pradesh- 201306</p>
         </li>
       </ul>

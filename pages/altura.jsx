@@ -187,7 +187,7 @@ const AlturaFinancePage = () => {
         <ContactInfo>
           <p><strong>Email:</strong> afs@alturafinancials.com</p>
           <p><strong>Website:</strong> <a href="https://alturafinancials.com/" target="_blank" rel="noopener noreferrer" style={{}}>https://alturafinancials.com/</a></p>
-          <p><strong>Phone:</strong> +91-9582581128</p>
+          <p><strong>Phone:</strong> +91-9211717788</p>
           <p><strong>Address:</strong> Ground Floor, Plot No-121, Block-B,Pocket-4, Sector-23, Dwarka, New Delhi, 110077</p>
           <p><strong>Support Hours:</strong> Monday to Friday, 9:00 AM - 6:00 PM IST</p>
         </ContactInfo>

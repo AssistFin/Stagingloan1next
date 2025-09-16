@@ -66,11 +66,11 @@ export default function ProofOfAddress({ startLoading, stopLoading }) {
       return;
     }
 
-    if (parseInt(monthlyIncomeNumber, 10) < 25000) {
+    if (parseInt(monthlyIncomeNumber, 10) < 27500) {
       setAlertData({
         type: "error",
         title: "Not Eligible",
-        message: "Minimum monthly income should be ₹25,000."
+        message: "Minimum monthly income should be ₹27,500."
       });
       return;
     }
