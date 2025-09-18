@@ -133,16 +133,17 @@ export default function ProofOfAddress({ startLoading, stopLoading }) {
 
   const fetchCityName = async (pin) => {
     try {
-      const response = await fetch(`https://api.postalpincode.in/pincode/${pin}`);
-      const data = await response.json();
-      if (data[0]?.Status === "Success") {
-        setCity(data[0].PostOffice[0].District);
+      const res = await fetch(`https://api.loan1.io/api/get-city/${pin}`); // call your Laravel API
+      const data = await res.json();
+      console.log("City API Response:", data);
+
+      if (data.Status === "Success") {
+        setCity(data.data.Districtname); // or State, etc.
       } else {
         setAlertData({ type: "error", title: "Error!", message: "Invalid Pin Code" });
       }
-    } catch (error) {
-      console.error("Error fetching city name:", error);
-      alert("Error fetching city name");
+    } catch (err) {
+      console.error("Error fetching city name:", err);
     }
   };
 
