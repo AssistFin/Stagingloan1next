@@ -31,29 +31,20 @@ export default function AadharVerification({ startLoading, stopLoading }) {
   const validateAadhar = (aadhar) => /^[0-9]{12}$/.test(aadhar);
 
   const handleContinue = async () => {
-    if (!validateAadhar(aadharNumber)) {
-      setAlertData({
-        type: "error",
-        title: "Error!",
-        message: "Please enter a valid 12-digit Aadhar number.",
-      });
-      return;
-    }
-
     try {
       startLoading();
       const response = await sendAadhaarOtp(aadharNumber);
       stopLoading();
 
-      if (response && response.data && response.data.reference_id) {
-        localStorage.setItem("reference_id", response.data.reference_id); // Store reference_id
+      if (response && response.data && response.data.session_id && response.data.authorization_url) {
+        localStorage.setItem("session_id", response.data.session_id); // Store reference_id
         // Removed success alert, redirecting directly
-        router.push("/verifyotp");
+        window.location.href = response.data.authorization_url;
       } else {
         const msg = response.message.error[0];
-        const msg1 = "Failed to request OTP. Please try again.";
+        const msg1 = "Failed for processing. Please try again.";
         let testval;
-        if(response.data.reference_id === null){ testval = msg; }else{ testval = msg;}
+        if(response.data.session_id === null){ testval = msg; }else{ testval = msg;}
         setAlertData({
           type: "error",
           title: "Error!",
@@ -62,11 +53,11 @@ export default function AadharVerification({ startLoading, stopLoading }) {
       }
     } catch (error) {
       stopLoading();
-      console.error("Error requesting OTP:", error);
+      console.error("Error for processing :", error);
       setAlertData({
         type: "error",
         title: "Error!",
-        message: error.response?.data?.message || "Error requesting OTP. Please check your input.",
+        message: error.response?.data?.message || "Error for processing. Please check your input.",
       });
     }
   };
@@ -92,29 +83,11 @@ export default function AadharVerification({ startLoading, stopLoading }) {
       {/* Aadhaar Card Example Image */}
       <div className={styles.exampleImage}>
         <Image src="/images/aadharcard.png" width={300} height={200} alt="Aadhaar Card" />
-        <p className={styles.imageCaption}>Example Aadhaar Number: 123456789012</p>
-      </div>
-
-      {/* Aadhaar Input Field */}
-      <div className={styles.inputGroup}>
-        <label htmlFor="aadharNumber" className={styles.label}>Enter Aadhaar Number</label>
-        <input
-          id="aadharNumber"
-          type="text"
-          className={`${styles.input} ${touched.aadharNumber && !aadharNumber ? styles.error : ""}`}
-          placeholder="Enter your 12-digit Aadhaar number"
-          value={aadharNumber.replace(/(\d{4})(?=\d)/g, "$1 ")}
-          onChange={(e) => setAadharNumber(e.target.value.replace(/[^0-9]/g, ""))}
-          onBlur={() => handleTouch("aadharNumber")}
-          onFocus={() => handleTouch("aadharNumber")}
-          maxLength={14}
-          inputMode="numeric"
-        />
       </div>
 
       {/* Continue Button */}
       <button className={styles.continueButton} onClick={handleContinue} disabled={loading}>
-        {loading ? "Sending OTP..." : "Continue"}
+        {loading ? "Processing..." : "Aadhar Verification Via Digilocker"}
       </button>
 
       {alertData && <SweetAlert {...alertData} onClose={() => setAlertData(null)} />}

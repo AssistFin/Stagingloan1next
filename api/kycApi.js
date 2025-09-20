@@ -63,11 +63,10 @@ export const sendAadhaarOtp = async (aadharNumber) => {
   };
 
   // Verify OTP
-export const verifyAadharOtp = async (otp, referenceId) => {
+export const verifyAadharOtp = async (referenceId) => {
     try {
       const loan_application_id = await getLoanApplicationId();
-      const data = { 
-        otp, 
+      const data = {
         reference_id: referenceId,
         loan_application_id
       };
@@ -79,7 +78,7 @@ export const verifyAadharOtp = async (otp, referenceId) => {
       );
       return response.data;
     } catch (error) {
-      console.error("Error verifying OTP:", error);
+      console.error("Error verifying Session Id:", error);
       throw error;
     }
   };
