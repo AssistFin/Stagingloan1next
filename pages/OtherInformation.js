@@ -6,6 +6,7 @@ import useAuthCheck from "../hooks/useAuthCheck";
 import { useAuth } from "../context/AuthContext";
 import useLoanNavigation from "../hooks/useLoanNavigation";
 import SweetAlert from "../components/SweetAlert"; // Added SweetAlert import
+import DayPickerModal from "../components/DayPickerModal";
 
 export default function OtherInformation({ startLoading, stopLoading }) {
   useAuthCheck();
@@ -15,13 +16,17 @@ export default function OtherInformation({ startLoading, stopLoading }) {
     company_name: false,
     designation: false,
     email: false,
+    salary_date : false,
     office_address: false,
     education_qualification: false,
     marital_status: false,
     work_experience_years: false,
+
   });
 
   const [alertData, setAlertData] = useState(null); // Added state for SweetAlert
+  const [isDayPickerOpen, setIsDayPickerOpen] = useState(false);
+
 
   useLoanNavigation(loanData);
 
@@ -40,6 +45,7 @@ export default function OtherInformation({ startLoading, stopLoading }) {
     education_qualification: "",
     marital_status: "",
     work_experience_years: "",
+    salary_date : "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -181,6 +187,34 @@ export default function OtherInformation({ startLoading, stopLoading }) {
             className={styles.inputBox}
           />
         </label> */}
+
+        {/* ✅ Each Month Salary Date Field (with custom day picker modal) */}
+        <label className={styles.formLabel}>
+          Each Month Salary Date:
+          <input
+            type="text"
+            name="salary_date"
+            value={formData.salary_date ? `${formData.salary_date}` : ""}
+            readOnly
+            placeholder=""
+            onClick={() => setIsDayPickerOpen(true)}
+            required
+            className={`${styles.inputBox} ${touched.salary_date && !formData.salary_date ? styles.error : ''}`}
+            onBlur={() => handleTouch('salary_date')}
+            onFocus={() => handleTouch('salary_date')}
+          />
+          <small className={styles.helperText}>
+          </small>
+        </label>
+
+        {isDayPickerOpen && (
+          <DayPickerModal
+            onSelect={(day) =>
+              setFormData((prev) => ({ ...prev, salary_date: day }))
+            }
+            onClose={() => setIsDayPickerOpen(false)}
+          />
+        )}
 
         <label className={styles.formLabel}>
           Office Address:
