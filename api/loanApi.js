@@ -307,3 +307,21 @@ export const getEnachStatus = async () => {
     return null;
   }
 };
+
+export const generateBankUrl = async (payload) => {
+
+  try {
+        const applicationData = await fetchLoanApplicationData();
+        const data1 = {
+        loan_application_id: applicationData.id, 
+        user_id: applicationData.user_id, 
+        loan_number: applicationData.loan_no, 
+        bank_name : payload.bank_name,
+      };
+      const response = await axios.post(`${BASE_URL}/generateurl`, data1, getAuthHeaders());
+      return response.data;
+  } catch (err) {
+    console.error("Failed to get generated url", err);
+    return null;
+  }
+};
