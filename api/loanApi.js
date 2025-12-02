@@ -308,20 +308,36 @@ export const getEnachStatus = async () => {
   }
 };
 
-export const generateBankUrl = async (payload) => {
 
+export const checkReturnStatus = async () => {
   try {
-        const applicationData = await fetchLoanApplicationData();
-        const data1 = {
-        loan_application_id: applicationData.id, 
-        user_id: applicationData.user_id, 
-        loan_number: applicationData.loan_no, 
-        bank_name : payload.bank_name,
-      };
-      const response = await axios.post(`${BASE_URL}/generateurl`, data1, getAuthHeaders());
-      return response.data;
-  } catch (err) {
-    console.error("Failed to get generated url", err);
-    return null;
+    const applicationData = await fetchLoanApplicationData();
+    const data1 = {
+      loan_application_id: applicationData.id, 
+      user_id: applicationData.user_id, 
+      loan_number: applicationData.loan_no,
+    };
+    const response = await axios.post(`${BASE_URL}/aauserresponse`, data1, getAuthHeaders());
+    const data = response.data;
+
+    if (data.status == true && data.aaData) {
+      if(data.aaData == "success")
+      {
+          const applicationData = await fetchLoanApplicationData();
+            const data2 = {
+            loan_application_id: applicationData.id, 
+            current_step: 'aareturnurl', 
+            next_step: 'loanstatus',
+          };
+          const response = await axios.post(`${BASE_URL}/update-loan-step`, data2, getAuthHeaders());
+          return data.aaData;
+      }
+      return data.aaData || null;
+    }else{
+      return 'INITIALIZED';
+    }
+  } catch (error) {
+    console.error('Error accepting AA by digitap:', error);
+    throw error;
   }
 };
