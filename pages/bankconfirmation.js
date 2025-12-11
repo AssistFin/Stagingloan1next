@@ -135,28 +135,46 @@ export default function BankConfirmation() {
 
             <div className={styles.inputGroup}>
               <label>Confirm Account Number</label>
-              <input type="text"  value={confirmAccNo} required onChange={(e) => {
-                    const val = e.target.value;
-                    setConfirmAccNo(val);
 
-                    // Validate last 4 digits
-                    if (val.length >= 4) {
-                        const last4 = val.slice(-4);
+              <input
+                type="text"
+                value={confirmAccNo}
+                required
+                style={{
+                  border: "2px solid #007bff",
+                  background: "#eaf3ff",
+                  padding: "10px",
+                  borderRadius: "6px",
+                  fontWeight: "600"
+                }}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  setConfirmAccNo(val);
 
-                        if (last4 !== apiLast4) {
-                        setAccError("Account number does not match");
-                        setIsAccValid(false);
-                        } else {
-                        setAccError("");
-                        setIsAccValid(true);
-                        }
+                  if (val.length >= 4) {
+                    const last4 = val.slice(-4);
+                    if (last4 !== apiLast4) {
+                      setAccError("Account number does not match");
+                      setIsAccValid(false);
                     } else {
-                        setAccError("Please enter the full account no");
-                        setIsAccValid(false);
+                      setAccError("");
+                      setIsAccValid(true);
                     }
-                    }} />
+                  } else {
+                    setAccError("Please enter the full account no");
+                    setIsAccValid(false);
+                  }
+                }}
+              />
 
-                {accError && <p style={{ color: "red", fontSize: "13px" }}>{accError}</p>}
+              {/* New instruction message */}
+              <p style={{ fontSize: "13px", color: "#555", marginTop: "4px" }}>
+                Please mention your full account number
+              </p>
+
+              {accError && (
+                <p style={{ color: "red", fontSize: "13px" }}>{accError}</p>
+              )}
             </div>
 
             <div className={styles.inputGroup}>
