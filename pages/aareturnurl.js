@@ -27,7 +27,7 @@ export default function ReturnUrl() {
       console.log(res);
       if (res == "success") {
         //setStatus("success");
-        router.push("/loanstatus");
+        router.push("/bankconfirmation");
       } else {
         setStatus("error");
       }

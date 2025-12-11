@@ -176,4 +176,14 @@
   .closeButton:hover {
     background: #005bb5;
   }
+
+  .infoText {
+  font-size: 14px;
+  color: #444;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  text-align: center;
+}
+
   

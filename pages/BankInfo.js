@@ -53,6 +53,12 @@ export default function BankInfo() {
       <h1 className={styles.heading}>Bank Info</h1>
       <p className={styles.subheading}>Your Data is Completely Secure with us</p>
 
+      {/* ⭐ New Information Section Added Here */}
+      <p className={styles.infoText}>
+        Provide the bank details where you receive your salary. This bank account
+        will be used for credit assessment, ENACH mandate, and loan disbursement.
+      </p>
+
       <button
         className={styles.submitButton}
         onClick={handleContinue}

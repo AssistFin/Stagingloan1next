@@ -3,7 +3,6 @@ import Cookies from "js-cookie";
 
 const BASE_URL = `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/loans`;
 
-// Get Auth Headers
 const getAuthHeaders = () => {
   const token = Cookies.get("token");
   return {
@@ -76,7 +75,6 @@ export const getAadharAddress = async () => {
   }
 };
 
-// Apply For A Loan
 export const applyForLoan = async (loanAmount, loanPurpose, runningLoan) => {
   try {
     const response = await axios.post(
@@ -95,7 +93,6 @@ export const applyForLoan = async (loanAmount, loanPurpose, runningLoan) => {
   }
 };
 
-// Submit Proof of Address (Personal Details)
 export const submitProofOfAddress = async (personalDetails) => {
   try {
     const loan_application_id = await getLoanApplicationId();
@@ -121,7 +118,6 @@ export const submitProofOfAddress = async (personalDetails) => {
   }
 };
 
-// Submit Address Details (Address confirmation)
 export const saveAddressDetails = async (formData) => {
   try {
     const loan_application_id = await getLoanApplicationId();
@@ -135,7 +131,6 @@ export const saveAddressDetails = async (formData) => {
   }
 };
 
-// Submit Employment Details API
 export const saveEmploymentDetails = async (formData) => {
   try {
     const loan_application_id = await getLoanApplicationId();
@@ -153,8 +148,6 @@ export const saveEmploymentDetails = async (formData) => {
   }
 };
 
-
-// Submit User Bank Details API
 export const submitBankDetails = async (formData) => {
   try {
     const loan_application_id = await getLoanApplicationId();
@@ -172,7 +165,6 @@ export const submitBankDetails = async (formData) => {
     throw error.response ? error.response.data : error.message;
   }
 };
-
 
 export const fetchLoanApprovalData = async () => {
   try {
@@ -228,7 +220,6 @@ export const acceptLoan = async (file_name) => {
     throw error;
   }
 };
-
 
 export const updateLoanStep = async (currentStep, nextStep) => {
   try {
@@ -308,7 +299,6 @@ export const getEnachStatus = async () => {
   }
 };
 
-
 export const checkReturnStatus = async () => {
   try {
     const applicationData = await fetchLoanApplicationData();
@@ -341,3 +331,53 @@ export const checkReturnStatus = async () => {
     throw error;
   }
 };
+
+export const getBankFromAA = async () => {
+  try {
+    const applicationData = await fetchLoanApplicationData();
+    const data1 = {
+      loan_application_id: applicationData.id
+    };
+    const response = await axios.post(`${BASE_URL}/get-bank-from-aa`, data1, getAuthHeaders());
+    const data = response.data;
+    return data.data || null;
+  } catch (error) {
+    console.error("AA Bank Details API error:", error);
+    return { status: false, message: "Network error" };
+  }
+}
+
+export async function submitAABankDetails(payload) {
+  try {
+    const res = await axios.post(`${BASE_URL}/submit-aa-bank-details`, payload, getAuthHeaders());
+
+    // Axios always returns data in res.data
+    const data = res.data;
+    console.log("API Response:", data);
+
+      if (data?.status == true) {
+            const applicationData = await fetchLoanApplicationData();
+              const data1 = {
+              loan_application_id: applicationData.id, 
+              current_step: 'bankconfirmation', 
+              next_step: 'loanstatus',
+            };
+            const response = await axios.post(`${BASE_URL}/update-loan-step`, data1, getAuthHeaders());
+            return {
+              status: true,
+              message: data.message || "Success",
+            };
+      }
+
+      // If status is false
+      return {
+        status: false,
+        message: data?.message || "Something went wrong!!",
+      };
+
+  } catch (error) {
+    console.error("Submit API error:", error);
+    return { status: false, message: "Network error" };
+  }
+}
+
