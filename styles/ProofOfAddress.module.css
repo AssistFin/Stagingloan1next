@@ -234,3 +234,34 @@
   border: 2px solid red !important;
 }
   
+/* new code added for button style*/
+.optionGroup {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.optionButton {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.optionButton:hover {
+  border-color: #000;
+}
+
+.activeButton {
+  background: #0d6efd;
+  color: #fff;
+  border-color: #0d6efd;
+}
+
+.errorBorder {
+  border: 1px solid red;
+}

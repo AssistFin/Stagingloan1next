@@ -57,33 +57,6 @@ export default function ProofOfAddress({ startLoading, stopLoading }) {
       return;
     }
 
-      if (employmentType !== "Salaried") {
-      setAlertData({
-        type: "error",
-        title: "Not Eligible",
-        message: "Only salaried employees are eligible."
-      });
-      return;
-    }
-
-    if (parseInt(monthlyIncomeNumber, 10) < 27500) {
-      setAlertData({
-        type: "error",
-        title: "Not Eligible",
-        message: "Minimum monthly income should be ₹27,500."
-      });
-      return;
-    }
-
-    if (incomeReceivedIn !== "Account" && incomeReceivedIn !== "Cheque") {
-      setAlertData({
-        type: "error",
-        title: "Not Eligible",
-        message: "Income should be received in Account or Cheque."
-      });
-      return;
-    }
-
     const personalDetails = {
       dob,
       pinCode,
@@ -229,20 +202,33 @@ export default function ProofOfAddress({ startLoading, stopLoading }) {
 
         {/* Employment Type */}
         <div className={styles.inputGroup}>
-          <label htmlFor="employmentType" className={styles.label}>Employment Type</label>
-          <select
-            id="employmentType"
-            className={`${styles.input} ${touched.employmentType && !employmentType ? styles.error : ''}`}
-            value={employmentType}
-            onChange={(e) => setEmploymentType(e.target.value)}
-            onBlur={() => handleTouch("employmentType")}
-            onFocus={() => handleTouch("employmentType")}
-            required
-          >
-            <option value="" disabled>Select</option>
-            <option value="Salaried">Salaried</option>
-            <option value="Self-Employed">Self-Employed</option>
-          </select>
+            <label className={styles.label}>Employment Type</label>
+
+            <div
+              className={`${styles.optionGroup} ${
+                touched.employmentType && !employmentType ? styles.errorBorder : ""
+              }`}
+            >
+              {["Salaried", "Self-Employed"].map((type) => (
+                <button
+                  key={type}
+                  type="button"
+                  className={`${styles.optionButton} ${
+                    employmentType === type ? styles.activeButton : ""
+                  }`}
+                  onClick={() => {
+                    setEmploymentType(type);
+                    handleTouch("employmentType");
+                  }}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+
+            {touched.employmentType && !employmentType && (
+              <span className={styles.error}>This field is required</span>
+            )}
         </div>
 
         {/* Monthly Income */}
@@ -263,22 +249,35 @@ export default function ProofOfAddress({ startLoading, stopLoading }) {
 
         {/* Income Received In */}
         <div className={styles.inputGroup}>
-          <label htmlFor="incomeReceivedIn" className={styles.label}>Income Received In</label>
-          <select
-            id="incomeReceivedIn"
-            className={`${styles.input} ${touched.incomeReceivedIn && !incomeReceivedIn ? styles.error : ''}`}
-            value={incomeReceivedIn}
-            onChange={(e) => setIncomeReceivedIn(e.target.value)}
-            onBlur={() => handleTouch("incomeReceivedIn")}
-            onFocus={() => handleTouch("incomeReceivedIn")}
-            required
+          <label className={styles.label}>Income Received In</label>
+
+          <div
+            className={`${styles.optionGroup} ${
+              touched.incomeReceivedIn && !incomeReceivedIn ? styles.errorBorder : ""
+            }`}
           >
-            <option value="" disabled>Select</option>
-            <option value="Account">Account</option>
-            <option value="Cash">Cash</option>
-            <option value="Cheque">Cheque</option>
-          </select>
+            {["Account", "Cash", "Cheque"].map((mode) => (
+              <button
+                key={mode}
+                type="button"
+                className={`${styles.optionButton} ${
+                  incomeReceivedIn === mode ? styles.activeButton : ""
+                }`}
+                onClick={() => {
+                  setIncomeReceivedIn(mode);
+                  handleTouch("incomeReceivedIn");
+                }}
+              >
+                {mode}
+              </button>
+            ))}
+          </div>
+
+          {touched.incomeReceivedIn && !incomeReceivedIn && (
+            <span className={styles.error}>This field is required</span>
+          )}
         </div>
+
 
         {/* Continue Button */}
         <button
