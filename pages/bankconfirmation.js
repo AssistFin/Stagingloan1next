@@ -14,23 +14,28 @@ export default function BankConfirmation() {
   const [apiLast4, setApiLast4] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [subsSessionId, setSubsSessionId] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [isRedirecting, setIsRedirecting] = useState(false);
   const [accError, setAccError] = useState("");
   const [isAccValid, setIsAccValid] = useState(false);
 
   const router = useRouter();
 
-  // ✅ 1. Check if redirected back after successful ENACH
+  /* ---------------------------------------
+     DEFINITION:
+     A masked account number is one that
+     contains 'X' or '*'
+  ---------------------------------------- */
+  const isMaskedAccount =
+    maskedAcc?.includes("X") || maskedAcc?.includes("*");
+
+  // ✅ Redirect after ENACH success
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
-    if (queryParams.get("status") == "completed") {
-      router.replace("/loandisbursal"); // immediate redirect without back button clutter
+    if (queryParams.get("status") === "completed") {
+      router.replace("/loandisbursal");
     }
   }, [router]);
 
-  // ✅ 2. Load bank data
+  // ✅ Load bank details
   useEffect(() => {
     const getData = async () => {
       try {
@@ -56,14 +61,13 @@ export default function BankConfirmation() {
     getData();
   }, []);
 
-    const handleProceed = async (e) => {
+  // ✅ Submit handler
+  const handleProceed = async (e) => {
     e.preventDefault();
 
-    console.log("🔵 CLICKED SUBMIT");
-
     if (!isAccValid) {
-        setAccError("Account number does not match");
-        return;
+      setAccError("Account number validation failed");
+      return;
     }
 
     setLoading(true);
@@ -72,122 +76,139 @@ export default function BankConfirmation() {
     let apiResult = null;
 
     try {
-        console.log("🔵 Calling API submitAABankDetails...");
-
-        apiResult = await submitAABankDetails({
+      apiResult = await submitAABankDetails({
         bank_name: bankName,
         account_number: confirmAccNo,
         ifsc_code: ifsc,
         loan_application_id: loan_application_id,
         customer_name: customer_name,
-        });
+      });
 
-        console.log("🟢 API Response:", apiResult);
+      if (apiResult?.status === true) {
+        window.location.href = "/loanstatus";
+        return;
+      }
 
-        if (apiResult?.status === true) {
-            console.log("🟢 STATUS TRUE → Redirecting NOW...");
-            window.location.href = "/loanstatus";
-        }
-
-        if (apiResult?.status === false) {
-            console.log("🔴 STATUS FALSE:", apiResult.message);
-            setError(apiResult.message);
-            return;
-        }
-
+      if (apiResult?.status === false) {
+        setError(apiResult.message);
+      }
     } catch (err) {
-        console.error("🔥 ERROR in handleProceed:", err);
-        setError("Error creating Bank Account Details.");
+      console.error(err);
+      setError("Error creating Bank Account Details.");
     } finally {
-        // ❗ Only reset loading if NOT redirecting
-        if (!apiResult?.status) {
-            console.log("🟡 FINALLY → No redirect, setting loading=false");
-            setLoading(false);
-        } else {
-            console.log("🟡 FINALLY → Redirecting, so NOT updating state");
-        }
+      if (!apiResult?.status) {
+        setLoading(false);
+      }
     }
-    };
+  };
 
   if (error) return <p style={{ color: "red" }}>{error}</p>;
 
   return (
-    <>
-      <div className={styles.container}>
-        <h4>Bank Account Details for Disbursement</h4>
-        <p>We use this bank account for e-nach and disbursement. Your account details are stored securely.</p>
-        {(
-          <form onSubmit={handleProceed} className={styles.form}>
-            <div className={styles.inputGroup}>
-              <label>Customer Name</label>
-              <input type="text" value={customer_name} readOnly required />
-            </div>
+    <div className={styles.container}>
+      <h4>Bank Account Details for Disbursement</h4>
+      <p>
+        We use this bank account for e-nach and disbursement. Your account
+        details are stored securely.
+      </p>
 
-            <div className={styles.inputGroup}>
-              <label>Bank Name</label>
-              <input type="text" value={bankName} readOnly required />
-            </div>
+      <form onSubmit={handleProceed} className={styles.form}>
+        <div className={styles.inputGroup}>
+          <label>Customer Name</label>
+          <input type="text" value={customer_name} readOnly />
+        </div>
 
-            <div className={styles.inputGroup}>
-              <label>Account Number</label>
-              <input type="text" value={maskedAcc} readOnly required />
-            </div>
+        <div className={styles.inputGroup}>
+          <label>Bank Name</label>
+          <input type="text" value={bankName} readOnly />
+        </div>
 
-            <div className={styles.inputGroup}>
-              <label>Confirm Account Number</label>
+        <div className={styles.inputGroup}>
+          <label>Account Number</label>
+          <input type="text" value={maskedAcc} readOnly />
+        </div>
 
-              <input
-                type="text"
-                value={confirmAccNo}
-                required
-                style={{
-                  border: "2px solid #007bff",
-                  background: "#eaf3ff",
-                  padding: "10px",
-                  borderRadius: "6px",
-                  fontWeight: "600"
-                }}
-                onChange={(e) => {
-                  const val = e.target.value;
-                  setConfirmAccNo(val);
+        <div className={styles.inputGroup}>
+          <label>Confirm Account Number</label>
 
-                  if (val.length >= 4) {
-                    const last4 = val.slice(-4);
-                    if (last4 !== apiLast4) {
-                      setAccError("Account number does not match");
-                      setIsAccValid(false);
-                    } else {
-                      setAccError("");
-                      setIsAccValid(true);
-                    }
-                  } else {
-                    setAccError("Please enter the full account no");
-                    setIsAccValid(false);
-                  }
-                }}
-              />
+          <input
+            type="text"
+            value={confirmAccNo}
+            inputMode="numeric"
+            placeholder="Enter full account number"
+            style={{
+              border: "2px solid #007bff",
+              background: "#eaf3ff",
+              padding: "10px",
+              borderRadius: "6px",
+              fontWeight: "600",
+            }}
+            onChange={(e) => {
+              const val = e.target.value.trim();
+              setConfirmAccNo(val);
 
-              {/* New instruction message */}
-              <p style={{ fontSize: "13px", color: "#555", marginTop: "4px" }}>
-                Please mention your full account number
-              </p>
+              /* ❌ Block masked input */
+              if (val.includes("X") || val.includes("*")) {
+                setAccError(
+                  "Masked account number is not allowed. Enter full account number."
+                );
+                setIsAccValid(false);
+                return;
+              }
 
-              {accError && (
-                <p style={{ color: "red", fontSize: "13px" }}>{accError}</p>
-              )}
-            </div>
+              /* ✅ CASE 1: API account is MASKED */
+              if (isMaskedAccount) {
+                if (val.length < 4) {
+                  setAccError("Please enter full account number");
+                  setIsAccValid(false);
+                  return;
+                }
 
-            <div className={styles.inputGroup}>
-              <label>IFSC Code</label>
-              <input type="text" value={ifsc} readOnly required />
-            </div>
+                const last4 = val.slice(-4);
 
-            <button type="submit" className={styles.button} disabled={loading || !isAccValid}>
-                {loading ? "Processing..." : "Submit"}
-            </button>
-          </form>
-        )}
-      </div>
-    </>
+                if (last4 !== apiLast4) {
+                  setAccError("Account number does not match");
+                  setIsAccValid(false);
+                } else {
+                  setAccError("");
+                  setIsAccValid(true);
+                }
+                return;
+              }
+
+              /* ✅ CASE 2: API account is NOT masked */
+              if (val !== maskedAcc) {
+                setAccError("Account number does not match");
+                setIsAccValid(false);
+              } else {
+                setAccError("");
+                setIsAccValid(true);
+              }
+            }}
+          />
+
+          <p style={{ fontSize: "13px", color: "#555", marginTop: "4px" }}>
+            Please mention your full account number
+          </p>
+
+          {accError && (
+            <p style={{ color: "red", fontSize: "13px" }}>{accError}</p>
+          )}
+        </div>
+
+        <div className={styles.inputGroup}>
+          <label>IFSC Code</label>
+          <input type="text" value={ifsc} readOnly />
+        </div>
+
+        <button
+          type="submit"
+          className={styles.button}
+          disabled={loading || !isAccValid}
+        >
+          {loading ? "Processing..." : "Submit"}
+        </button>
+      </form>
+    </div>
   );
 }
