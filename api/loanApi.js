@@ -42,17 +42,42 @@ export const fetchLoanApplicationData = async () => {
     const response = await fetch(`${BASE_URL}/apply`, getAuthHeaders());
     const data = await response.json();
 
-    if (data.status && data.data) {
-        const expires = new Date(Date.now() + 60 * 60 * 1000); // 1 hour from now
+        /*
+        |--------------------------------------------------------------------------
+        | CASE 2: Cooling period active (<45 days)
+        |--------------------------------------------------------------------------
+        */
+        if (data.status && data.data2 === "noteligible") {
+          return data.data;
+        }
 
-        Cookies.set("loan_application_id", data.data.id, {
-          expires,
-          secure: true,
-          sameSite: "Strict",
-        });
+        /*
+        |--------------------------------------------------------------------------
+        | CASE 3: Eligible for new loan → redirect
+        |--------------------------------------------------------------------------
+        */
+        if (data.status && data.data2 === "applyforaloan") {
+          router.push("/applyforaloan");
+          return null;
+        }
 
-      return data.data; 
-    }
+        /*
+        |--------------------------------------------------------------------------
+        | CASE 1: Pending loan exists
+        |--------------------------------------------------------------------------
+        */
+        if (data.status && data.data) {
+          const expires = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
+
+          Cookies.set("loan_application_id", data.data.id, {
+            expires,
+            secure: true,
+            sameSite: "Strict",
+          });
+
+          return data.data;
+        }
+
     return null;
   } catch (error) {
     console.error('Failed to fetch loan data:', error);
