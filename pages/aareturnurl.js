@@ -57,6 +57,7 @@ export default function ReturnUrl() {
       {status === "error" && (
         <>
           <h3>Status: Failed ❌</h3>
+          <p>Your bank is currently unable to share data. Please upload your last 4 months’ bank statement, including the current month, to continue.</p>
           <button onClick={goToBankInfo} style={btnStyle}>
             Retry
           </button>
