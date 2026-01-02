@@ -42,18 +42,20 @@ export default function VerifyOTP({ startLoading, stopLoading }) {
 
   const handleSubmit = async () => {
     setLoading(true);
-    const referenceId = localStorage.getItem("session_id");
+    const otpCode = otp.join("");
+    const referenceId = localStorage.getItem("reference_id");
     try {
       startLoading();
-      const response = await verifyAadharOtp(referenceId);
+      const response = await verifyAadharOtp(otpCode, referenceId);
       stopLoading();
 
-      if (response.status === "success") {
-        // Removed success alert, redirecting directly
+      if (response.status === "success" && response.url) {
+        window.location.href = response.url; 
+      } else if (response.status === "success"){
         router.push("/submitselfie");
       } else {
         const msg = response.message.error[0];
-        const msg1 = "Incorrect Session Id. Please try again.";
+        const msg1 = "Incorrect OTP. Please try again.";
         let testval;
         if(response.data.status === "error"){ testval = msg; }else{ testval = msg;}
         setAlertData({
@@ -156,9 +158,39 @@ export default function VerifyOTP({ startLoading, stopLoading }) {
           alt="OTP Verification"
         />
       </div>
-      <h2 className={styles.otpHeading}>Verify Aadhar</h2>
-      
+      <h2 className={styles.otpHeading}>Verify Aadhar OTP</h2>
+      <p className={styles.otpDescription}>
+        A six-digit code was sent to your Aadhar-registered Mobile Number
+      </p>
+      {/* <p className={styles.otpInstruction}>Kindly enter the code to continue.</p> */}
+      <div className={styles.otpContainer}>
+        {otp.map((digit, index) => (
+          <input
+            key={index}
+            ref={(el) => (inputRefs.current[index] = el)}
+            type="tel"
+            maxLength="1"
+            className={styles.otpInput}
+            value={digit}
+            onChange={(e) => handleInputChange(index, e.target.value)}
+            onFocus={(e) => e.target.select()}
+            onKeyDown={(e) => {
+              if (e.key === "Backspace" && index > 0 && !otp[index]) {
+                inputRefs.current[index - 1]?.focus();
+              }
+            }}
+          />
+        ))}
+      </div>
+      {error && <p className={styles.errorMessage}>{error}</p>}
       <div className={styles.resendContainer}>
+        {/* <button
+          className={styles.resendButton}
+          onClick={handleResendOTP}
+          disabled={timer > 0 || loading}
+        >
+          Resend OTP
+        </button> */}
         <span className={styles.timer}>
           {timer > 0 ? `00:${timer.toString().padStart(2, "0")}` : "Ready"}
         </span>

@@ -63,10 +63,11 @@ export const sendAadhaarOtp = async (aadharNumber) => {
   };
 
   // Verify OTP
-export const verifyAadharOtp = async (referenceId) => {
+export const verifyAadharOtp = async (otp, referenceId) => {
     try {
       const loan_application_id = await getLoanApplicationId();
-      const data = {
+      const data = { 
+        otp, 
         reference_id: referenceId,
         loan_application_id
       };
@@ -78,7 +79,7 @@ export const verifyAadharOtp = async (referenceId) => {
       );
       return response.data;
     } catch (error) {
-      console.error("Error verifying Session Id:", error);
+      console.error("Error verifying OTP:", error);
       throw error;
     }
   };
@@ -97,3 +98,22 @@ export const getUserProfile = async () => {
     throw error;
   }
 };
+
+export const getSelfieUrl = async () => {
+    try {
+      const loan_application_id = await getLoanApplicationId();
+      const data = {
+        loan_application_id
+      };
+
+      const response = await axios.post(
+        `${BASE_URL}/selfie/url`,
+        data,
+        getAuthHeaders()
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error verifying OTP:", error);
+      throw error;
+    }
+  };
