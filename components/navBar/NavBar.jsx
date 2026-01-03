@@ -269,7 +269,7 @@ const NavBar = () => {
                         className="cmn-btn"
                         onClick={hidenMenu}
                       >
-                        Open Account
+                        Apply Now
                       </Link>
                     )}
                   </div>
