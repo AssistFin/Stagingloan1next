@@ -93,23 +93,6 @@ export default function LoanStatus({ startLoading, stopLoading }) {
         </p>
       </motion.div>
 
-      <motion.div
-        className={styles.buttonContainer}
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
-      >
-        <motion.button
-          className={styles.backButton}
-          onClick={handleBackToPan}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <FaArrowLeft className={styles.buttonIcon} />
-          Back to Bank Info
-        </motion.button>
-      </motion.div>
-
       {alertData && <SweetAlert {...alertData} onClose={() => setAlertData(null)} />}
     </motion.div>
   );
