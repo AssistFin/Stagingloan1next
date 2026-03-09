@@ -47,8 +47,8 @@ export const fetchLoanApplicationData = async () => {
         | CASE 2: Cooling period active (<45 days)
         |--------------------------------------------------------------------------
         */
-        if (data.status && data.data2 === "noteligible") {
-          return data.data;
+        if (data.data2 === "noteligible") {
+          return { redirect: "/noteligible" };
         }
 
         /*
@@ -56,9 +56,8 @@ export const fetchLoanApplicationData = async () => {
         | CASE 3: Eligible for new loan → redirect
         |--------------------------------------------------------------------------
         */
-        if (data.status && data.data2 === "applyforaloan") {
-          router.push("/applyforaloan");
-          return null;
+        if (data.data2 === "applyforaloan") {
+          return { redirect: "/applyforaloan" };
         }
 
         /*
@@ -194,6 +193,11 @@ export const submitBankDetails = async (formData) => {
 export const fetchLoanApprovalData = async () => {
   try {
     const applicationData = await fetchLoanApplicationData();
+
+    if (!applicationData || applicationData.redirect) {
+      return null;
+    }
+
     if(applicationData) {
       const data = {
         loan_application_id: applicationData.id, 
@@ -215,6 +219,11 @@ export const fetchLoanApprovalData = async () => {
 export const fetchLoanDisbursalData = async () => {
   try {
     const applicationData = await fetchLoanApplicationData();
+
+    if (!applicationData || applicationData.redirect) {
+      return null;
+    }
+
     const data = {
       loan_application_id: applicationData.id, 
       user_id: applicationData.user_id, 
@@ -231,6 +240,11 @@ export const fetchLoanDisbursalData = async () => {
 export const acceptLoan = async (file_name) => {
   try {
     const applicationData = await fetchLoanApplicationData();
+
+    if (!applicationData || applicationData.redirect) {
+      return null;
+    }
+
     const data = {
       loan_application_id: applicationData.id, 
       user_id: applicationData.user_id, 
@@ -246,13 +260,14 @@ export const acceptLoan = async (file_name) => {
   }
 };
 
-export const updateLoanStep = async (currentStep, nextStep) => {
+export const updateLoanStep = async (currentStep, nextStep, backto = null ) => {
   try {
     const loan_application_id = await getLoanApplicationId();
     const data = {
       loan_application_id,
       current_step: currentStep,
-      next_step: nextStep
+      next_step: nextStep,
+      backto:backto
     };
 
     const response = await axios.post(
@@ -271,6 +286,11 @@ export const updateLoanStep = async (currentStep, nextStep) => {
 export const fetchLoanBankDetails = async () => {
   try {
     const data = await fetchLoanApplicationData(); // same helper
+
+    if (!data || data.redirect) {
+      return null;
+    }
+
     if (data) {
       return data.bank_details;
     }
@@ -284,6 +304,10 @@ export const fetchLoanBankDetails = async () => {
 export const submitEnachMandate = async (payload) => {
   try {
         const applicationData = await fetchLoanApplicationData();
+
+        if (!applicationData || applicationData.redirect) {
+          return null;
+        }
         const data1 = {
         loan_application_id: applicationData.id, 
         user_id: applicationData.user_id, 
@@ -307,6 +331,11 @@ export const getEnachStatus = async () => {
       if(data.data.enachData?.status == 'ACTIVE')
       {
           const applicationData = await fetchLoanApplicationData();
+
+          if (!applicationData || applicationData.redirect) {
+            return null;
+          }
+
             const data1 = {
             loan_application_id: applicationData.id, 
             current_step: 'cashfreeredirect', 
@@ -327,6 +356,11 @@ export const getEnachStatus = async () => {
 export const checkReturnStatus = async () => {
   try {
     const applicationData = await fetchLoanApplicationData();
+
+    if (!applicationData || applicationData.redirect) {
+      return null;
+    }
+
     const data1 = {
       loan_application_id: applicationData.id, 
       user_id: applicationData.user_id, 
@@ -339,6 +373,11 @@ export const checkReturnStatus = async () => {
       if(data.aaData == "success")
       {
           const applicationData = await fetchLoanApplicationData();
+
+          if (!applicationData || applicationData.redirect) {
+            return null;
+          }
+
             const data2 = {
             loan_application_id: applicationData.id, 
             current_step: 'aareturnurl', 
@@ -360,6 +399,11 @@ export const checkReturnStatus = async () => {
 export const getBankFromAA = async () => {
   try {
     const applicationData = await fetchLoanApplicationData();
+
+    if (!applicationData || applicationData.redirect) {
+      return null;
+    }
+
     const data1 = {
       loan_application_id: applicationData.id
     };
@@ -382,6 +426,11 @@ export async function submitAABankDetails(payload) {
 
       if (data?.status == true) {
             const applicationData = await fetchLoanApplicationData();
+
+            if (!applicationData || applicationData.redirect) {
+              return null;
+            }
+
               const data1 = {
               loan_application_id: applicationData.id, 
               current_step: 'bankconfirmation', 

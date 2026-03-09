@@ -23,6 +23,12 @@ export const AuthProvider = ({ children }) => {
       const fetchData = async () => {
         try {
           const data = await fetchLoanApplicationData();
+
+          if (data?.redirect) {
+            router.push(data.redirect);
+            return;
+          }
+
           if (data) {
             setLoanData(data);
           }
