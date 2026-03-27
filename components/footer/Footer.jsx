@@ -14,7 +14,7 @@ import Logo from "/public/images/logo.png";
 const Footer = () => {
   return (
     <div className="footer-section row">
-  <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+  <div className="col-xl-5 col-lg-5 col-md-5 col-sm-5">
     <div className="footer-box">
       <Link href="/" className="logo">
         {/* <Image src={Logo} alt="logo" /> */}
@@ -26,8 +26,10 @@ const Footer = () => {
           />
       </Link>
       <p>
-        LoanOne, the flagship brand of AssistFin Technologies Private Limited, leverages cutting-edge technology to simplify access to credit. By combining innovation with a deep understanding of customer needs.
+        LoanOne is a digital platform that facilitates personal loans through RBI-registered NBFC partners, offering a transparent and seamless application experience.
       </p>
+      <p><strong>Disclaimer : </strong>LoanOne is not a lender. Loans are offered and disbursed by RBI-registered NBFCs, subject to their independent evaluation and policies.</p>
+      <p><strong>Lending Partner Disclosure : </strong>LoanOne facilitates loans through RBI-registered NBFCs, including Altura Financial Services Ltd.</p>
       <div className="social-link d-flex align-items-center">
         {/* Socials links here */}
         <Social
@@ -41,7 +43,7 @@ const Footer = () => {
       </div>
     </div>
   </div>
-  <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+  <div className="col-xl-2 col-lg-2 col-md-2 col-sm-2">
     <div className="footer-box">
       <h5>Company</h5>
       <ul className="footer-link">
@@ -53,7 +55,7 @@ const Footer = () => {
       </ul>
     </div>
   </div>
-  <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+  <div className="col-xl-2 col-lg-2 col-md-2 col-sm-2">
     <div className="footer-box">
       <h5>Products</h5>
       <ul className="footer-link">
@@ -73,9 +75,9 @@ const Footer = () => {
       <h5>Address Info</h5>
       <ul className="footer-link">
         <li>
-          <p>AssistFin Technologies Private Limited</p>
-          <p>CIN No. U62090UP2024PTC209235</p>
-          <p>Corp. Off: B-233, 2nd Floor, Pacific Business Park, Sahibabad, Ghaziabad, Uttar Pradesh- 201306</p>
+          <p><strong>CIN No.:</strong> U62090UP2024PTC209235</p>
+          <p><strong>Reg. Off.:</strong> T-28/1802, Nirala Estate Ph-II, Tech Zone-IV, Greater Noida West, Uttar Pradesh-201306</p>
+          <p><strong>Corp. Off.:</strong> B-233, 2nd Floor, Pacific Business Park, Sahibabad, Ghaziabad, Uttar Pradesh-201010</p>
         </li>
       </ul>
     </div>

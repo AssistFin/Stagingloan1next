@@ -10,8 +10,8 @@ const OurLoan = () => {
       features: [
         "₹5,000 - ₹50,000",
         "Terms from upto 12 months",
-        "Interest Rate upto 2% per month",
-        "Processing Fee upto 5% + GST",
+        "Interest Rate 2% per month onward",
+        "Processing 5% onward onward + GST",
         "No prepayment penalties",
         "Quick & direct transfer to the Bank Account",
         "Minimal documentation, quick & direct transfer to the Bank Account",
@@ -24,8 +24,8 @@ const OurLoan = () => {
       features: [
         "₹10,000 - ₹1,00,000",
         "Terms from upto 12 months",
-        "Interest Rate upto 2% per month",
-        "Processing Fee upto 5% + GST",
+        "Interest Rate 2% per month onward",
+        "Processing Fee 5% onward + GST",
         "No prepayment penalties",
         "Quick & direct transfer to the Bank Account",
         "Minimal documentation, quick & direct transfer to the Bank Account",
@@ -38,8 +38,8 @@ const OurLoan = () => {
       features: [
         " ₹50,000 to ₹2,00,000",
         "Terms from upto 12 months",
-        "Interest Rate upto 2% per month",
-        "Processing Fee upto 5% + GST",
+        "Interest Rate 2% per month onward",
+        "Processing Fee 5% onward + GST",
         "Prepayment penalties as applicable",
         "No collateral or pledge of security",
         "Minimal documentation, quick & direct transfer to the Bank Account",
@@ -52,8 +52,8 @@ const OurLoan = () => {
       features: [
         "₹50,000 - ₹2,00,000",
         "Terms from upto 12 months",
-        "Interest Rate upto 2% per month",
-        "Processing Fee upto 5% + GST",
+        "Interest Rate 2% per month onward",
+        "Processing Fee 5% onward + GST",
         "Prepayment penalties as applicable",
         "No collateral or pledge of security",
         "Minimal documentation, quick & direct transfer to the Bank Account",

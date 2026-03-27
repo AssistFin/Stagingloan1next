@@ -185,6 +185,8 @@ const AlturaFinancePage = () => {
           We’re here to help you with your financial needs. Reach out to us for more information or to apply for our services.
         </p>
         <ContactInfo>
+          <p><strong>RBI Reg. No.:</strong> N-14.03308</p>
+          <p><strong>CIN:</strong> U65100DL2013PLC259294</p>
           <p><strong>Email:</strong> afs@alturafinancials.com</p>
           <p><strong>Website:</strong> <a href="https://alturafinancials.com/" target="_blank" rel="noopener noreferrer" style={{}}>https://alturafinancials.com/</a></p>
           <p><strong>Phone:</strong> +91-9211717788</p>

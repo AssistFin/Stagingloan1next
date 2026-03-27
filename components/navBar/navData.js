@@ -133,7 +133,7 @@ export const navData = [
   },
   {
     id: "au@223",
-    itm: "Partners",
+    itm: "Lending Partner",
     url: "#",
     dropdown: true,
     dropdown_itms: [
@@ -141,7 +141,7 @@ export const navData = [
       
       {
         id: "du@001s",
-        dp_itm: "Altura",
+        dp_itm: "Altura Financial Services Ltd.",
         url: "/altura",
       },
     ],

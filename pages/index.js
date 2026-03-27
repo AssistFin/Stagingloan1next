@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Script from "next/script";
 import { loginWithMobile, verifyOTP } from "../api/auth";
 import styles from "../styles/Login.module.css";
 import { useAuth } from "../context/AuthContext";
@@ -149,11 +150,11 @@ export default function LoginPage({ startLoading, stopLoading }) {
       >
         {!showOtpDialog && (
           <>
-            <h4 className={styles.welcomeText}>Welcome to World of Financial Empowerment with <span className={styles.welcomeText} style={{color: '#062478'}}><strong>Loan</strong></span><span className={styles.welcomeText} style={{color: '#0a8a1d'}}><strong>One</strong></span></h4>
-            <h3 className={styles.subTitle}>Salary Advance Loans for Working Professionals</h3>
+            <h5 className={styles.welcomeText}>Personal Loans Made Simple & Transparent with <span className={styles.welcomeText} style={{color: '#062478'}}><strong>Loan</strong></span><span className={styles.welcomeText} style={{color: '#0a8a1d'}}><strong>One</strong></span></h5>
+            <h4 className={styles.subTitle}>Apply for personal loans through our trusted RBI-registered lending partners</h4>
             <div className={styles.tagline}>
-              <span>Reliability</span> | <span>Efficiency</span> |{" "}
-              <span>Innovation</span>
+              <span>Transparent Pricing</span> | <span>Digital Process</span> |{" "}
+              <span>Trusted Lending Partners</span>
             </div>
             <motion.div
               className={styles.card}
@@ -271,6 +272,7 @@ export default function LoginPage({ startLoading, stopLoading }) {
       <Planning />
       <Personalized />
       <Faq />
+
     </>
   );
 }

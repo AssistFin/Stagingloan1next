@@ -107,7 +107,8 @@ export default function VerifyOTP({ startLoading, stopLoading }) {
       startLoading();
       const response = await updateLoanStep(
         "completekyc",
-        "aadharverification"
+        "aadharverification",
+        "backto"
       );
       stopLoading();
 

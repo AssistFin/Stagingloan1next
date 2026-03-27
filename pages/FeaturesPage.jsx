@@ -74,10 +74,10 @@ const FeaturesPage = () => {
 
       <FeatureCard>
         <IconWrapper $background="#E6FFE6">
-          {/* Placeholder for Instant Approval icon - Replace with actual SVG or image */}
+          {/* Placeholder for Rapid Approval icon - Replace with actual SVG or image */}
           <span role="img" aria-label="clock">⏳</span>
         </IconWrapper>
-        <h3>Instant Approval</h3>
+        <h3>Rapid Approval</h3>
         <p>Find out if you’re approved or not in minutes, not days.</p>
       </FeatureCard>
 
